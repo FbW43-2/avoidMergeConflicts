@@ -110,7 +110,8 @@ You can use the Inline Action links that VS Code provides automatically, to choo
 * Accept Both changes
 * Compare Changes
 
-![Inline Action Links](img/merge-conflict.png)
+![Inline Action Links](https://user-images.githubusercontent.com/12972520/129199647-51357d03-8d3e-403c-9bb8-8207b4a9079a.png)
+
 
 ## Merge conflicts without any real conflict
 
