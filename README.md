@@ -29,16 +29,20 @@ Now, when you are working on one particular page, you can make changes to both t
 
 ## Writing modular code
 
-You already have experience importing third-party modules into your JavaScript files. For example, you have often used the command:
+It is also good to break big scripts up into smaller modules. You can `import` modular scripts into other scripts, so that the main script has all the functionality contained in the separate module scripts.
+
+You already have experience of this, when you import third-party modules into your JavaScript files. For example, you have often used a command similar to this:
 
 ```js
-import React, {Component} from "react"
+import React, { Component } from "react"
 ```
 
-You can also import custom JavaScript files, to add constants or functions to a given script. For example:
+You can use a similar technique to import custom JavaScript files, to add constants or functions to a given script.
+
+Here is a simple example, where the `game.js` script imports a `shuffle` function from a script called `utilities.js`, and then uses the `shuffle` function to shuffle the elements in an array. (The details of how the `shuffle` function works are not important here.)
 
 ```js
-// utilities.jss
+// utilities.js
 
 export const shuffle = (a) => {
   let ii = a.length
@@ -63,6 +67,8 @@ shuffle(array)
 console.log(array)
 ```
 
+---
+
 ```js
 // possible output
 
@@ -85,9 +91,13 @@ If each team member is always working on different files from each other team me
 
 ## Handling merge conflicts
 
-If you *do* encounter a conflict when you are merging from `dev` into your branch, or from your branch into `dev`, you can use the `git blame <filename>` [command](https://git-scm.com/docs/git-blame) to see which of your team-mates made the changes that conflict with yours. For example:
+If you *do* encounter a conflict when you are merging from `dev` into your branch, or from your branch into `dev`, then you need to know which of your team members wrote the code that conflicts with yours.
+
+You can use the `git blame <filename>` [command](https://git-scm.com/docs/git-blame) to see which of your team-mates wrote each line of code in a given file. For example, the command...
 
     git blame src/pages/jobs.js
+
+... might produce the output shown below. This would indicate that it was Florin who wrote every line in the file, so you would know that Florin is the person you need to talk to.
     
     715b9d25 (Florin 2021-08-03 15:39:00 +0200  2) import { Container } from "react-bootstrap";
     715b9d25 (Florin 2021-08-03 15:39:00 +0200  3) 
@@ -110,8 +120,7 @@ You can use the Inline Action links that VS Code provides automatically, to choo
 * Accept Both changes
 * Compare Changes
 
-![Inline Action Links](https://user-images.githubusercontent.com/12972520/129199647-51357d03-8d3e-403c-9bb8-8207b4a9079a.png)
-
+![Inline Action Links](img/merge-conflict.png)
 
 ## Merge conflicts without any real conflict
 
